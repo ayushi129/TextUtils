@@ -162,8 +162,8 @@ export default function TextForm(props) {
           className="btn btn-outline-primary me-4 my-2"
           onClick={handleClrClick}
         >
-          {/* Clear Text */}
-          <i class="fa fa-home"></i>
+          Clear Text
+          {/* <i class="fa fa-home"></i> */}
         </button>
         <button className="btn btn-outline-primary me-2" onClick={handleUndo}>
           Undo
