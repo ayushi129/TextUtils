@@ -55,6 +55,19 @@ export default function TextForm(props) {
     setText("");
   };
 
+  //Function to Copy the text to the clipboard
+  const handleCopy = () => {
+    var text = document.getElementById("myBox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  }
+
+  //Function to remove extra spaces
+  const handleRemoveExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "))
+  }
+
   const [history, setHistory] = useState([text]);
   const [index, setIndex] = useState(0);
 
@@ -163,7 +176,12 @@ export default function TextForm(props) {
           onClick={handleClrClick}
         >
           Clear Text
-          {/* <i class="fa fa-home"></i> */}
+        </button>
+        <button className="btn btn-outline-primary me-2" onClick={handleCopy}>
+          <i class="fa fa-copy"></i>
+        </button>
+        <button className="btn btn-outline-primary me-2" onClick={handleRemoveExtraSpaces}>
+          Remove Extra Spaces
         </button>
         <button className="btn btn-outline-primary me-2" onClick={handleUndo}>
           Undo
